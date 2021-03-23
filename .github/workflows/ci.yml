@@ -1,0 +1,16 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1.0.0
+      - name: Install
+        run: npm ci
+      - name: Percy Test
+        uses: percy/exec-action@v0.3.1
+        with:
+          command: "node snapshots.js"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
