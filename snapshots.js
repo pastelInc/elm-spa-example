@@ -11,13 +11,11 @@ PercyScript.run(async (page, percySnapshot) => {
 
   console.log(`Server started at ${TEST_URL}`);
 
-  await page.goto(TEST_URL);
-  await page.waitForTimeout(1000);
+  await page.goto(TEST_URL, {waitUntil: 'networkidle0'});
   await percySnapshot('home page');
 
   // Go to sign in page.
-  await page.goto(`${TEST_URL}/#/login`);
-  await page.waitForTimeout(1000);
+  await page.goto(`${TEST_URL}/#/login`, {waitUntil: 'networkidle0'});
   await percySnapshot('sign in page');
   server.close();
 });

@@ -4,12 +4,12 @@
   "description": "👉 I gave [a talk](https://www.youtube.com/watch?v=x1FU3e0sT1I) to explain the principles I used to build this. I highly recommend watching it!",
   "main": "index.js",
   "directories": {
-    "start": "http-server -s -p 8000",
-    "snapshots": "percy exec -- node snapshots.js",
     "test": "tests"
   },
   "scripts": {
     "build": "elm make src/Main.elm --output elm.js --optimize",
+    "start": "http-server -s -p 8000",
+    "snapshots": "percy exec -- node snapshots.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
